@@ -22,10 +22,11 @@ public class StatusCommand extends Command {
             if (!map.isEmpty()) {
                 System.out.println("No. Slot\tNomor registrasi\tWarna");
 
-                for (int slot : map.keySet()) {
+                map.keySet().forEach(slot -> {
                     Vehicle car = map.get(slot);
                     System.out.println(slot + "\t\t\t" + car.getRegistrationNumber() + "\t\t\t" + car.getColor());
-                }
+                });
+
             } else
                 System.out.println(ErrorCode.NO_CAR_PARKED);
         } else {

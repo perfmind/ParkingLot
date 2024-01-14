@@ -24,11 +24,10 @@ public class GetRegistrationNumbersFromColorCommand extends Command{
             if (registrationList == null || registrationList.isEmpty()) {
                 System.out.println(ErrorCode.NOT_FOUND);
             } else {
-                int index;
-                for (index = 0; index < registrationList.size() - 1; index++)
+                for (int index = 0; index < registrationList.size() - 1; index++)
                     System.out.print(registrationList.get(index) + ", ");
 
-                System.out.println(registrationList.get(index));
+                System.out.println(registrationList.get(registrationList.size() - 1));
             }
 
         } else {
