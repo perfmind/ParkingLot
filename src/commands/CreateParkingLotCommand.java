@@ -16,11 +16,15 @@ public class CreateParkingLotCommand extends Command {
 
         String countLots = this.args[0];
 
+        if (parkingLot.isLotInitialized()) {
+            System.out.println("Parking Lot sudah dibuat, silakan pilih menu lainnya!");
+        }
+
         try {
             int countLotsNumber = Integer.parseInt(countLots);
             if (countLotsNumber > 0) {
                 parkingLot.createParkingLot(countLotsNumber);
-                System.out.println("Created a parking lot with " + countLots + " slots");
+                System.out.println("Parking lot berhasil dibuat dengan " + countLots + " slot");
             }
         } catch (Exception e) {
             System.out.println(ErrorCode.INVALID_SLOT_NUMBER);

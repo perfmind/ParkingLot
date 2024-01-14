@@ -37,53 +37,11 @@ public class ParkingService {
 
             command.run(args);
         } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    public void getRegistrationNumbersFromColor(String registrationNumber) {
-        if (parkingLot.isLotInitialized()) {
-            List<String> registrationList = parkingLot.getRegistrationNumbersFromColor(registrationNumber);
-            if (registrationList == null || registrationList.isEmpty()) {
-                System.out.println(ErrorCode.NOT_FOUND);
-            } else {
-                int index;
-                for (index = 0; index < registrationList.size() - 1; index++)
-                    System.out.print(registrationList.get(index) + ", ");
-
-                System.out.println(registrationList.get(index));
-            }
-
-        } else {
-            System.out.println(ErrorCode.LOT_NOT_INITIALIZED);
+            System.out.println(e.getMessage());
         }
     }
 
     public void getSlotNumbersFromColor(String color) {
-        if (parkingLot.isLotInitialized()) {
-            List<Integer> slots = parkingLot.getSlotNumbersFromColor(color);
-            if (slots == null || slots.isEmpty()) {
-                System.out.println(ErrorCode.NOT_FOUND);
-            } else {
-                int i = 0;
-                for (i = 0; i < slots.size() - 1; i++) {
-                    System.out.print(slots.get(i) + ", ");
-                }
-                System.out.println(slots.get(i));
-            }
-        } else
-            System.out.println(ErrorCode.LOT_NOT_INITIALIZED);
-    }
 
-    public void getSlotNumberFromRegistrationNumber(String registrationNumber) {
-        if (parkingLot.isLotInitialized()) {
-            int slot = parkingLot.getSlotNumberFromRegistrationNumber(registrationNumber);
-            if (slot != -1) {
-                System.out.println(slot);
-            } else {
-                System.out.println(ErrorCode.NOT_FOUND);
-            }
-        } else
-            System.out.println(ErrorCode.LOT_NOT_INITIALIZED);
     }
 }

@@ -20,7 +20,7 @@ public class LeaveCommand extends Command {
             try {
                 constants.Leave leaveEnum = parkingLot.leave(Integer.parseInt(slot));
                 if (leaveEnum == constants.Leave.LEAVE_SUCCESS) {
-                    System.out.println("Slot number " + slot + " is free");
+                    System.out.println("Slot number " + slot + " kosong");
                 } else if (leaveEnum == constants.Leave.LEAVE_SLOT_FREE) {
                     System.out.println(ErrorCode.NO_CAR_PARKED_SLOT);
                 } else if (leaveEnum == constants.Leave.LEAVE_LOT_EMPTY) {

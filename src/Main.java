@@ -27,9 +27,9 @@ public class Main {
         menu.append("2. Parkir Kendaraan\n");
         menu.append("3. Keluar Parkir\n");
         menu.append("4. Tampilkan Status\n");
-//        menu.append("5. Tampilkan Kendaraan berdasarkan warna\n");
-//        menu.append("6. Tampilkan slot parkir berdasarkan warna kendaraan\n");
-//        menu.append("7. Tampilkan slot parkir berdasarkan nomor kendaraan\n");
+        menu.append("5. Tampilkan Kendaraan berdasarkan warna\n");
+        menu.append("6. Tampilkan slot parkir berdasarkan warna kendaraan\n");
+        menu.append("7. Tampilkan slot parkir berdasarkan nomor kendaraan\n");
         System.out.println(menu);
     }
 

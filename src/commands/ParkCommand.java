@@ -22,7 +22,7 @@ public class ParkCommand extends Command {
                 System.out.println(ErrorCode.NO_AVAILABLE_SLOTS);
             } else {
                 int slotNumber = parkingLot.park(registrationNumber, color);
-                System.out.println("Allocated slot number: " + slotNumber);
+                System.out.println("Kendaraan berhasil di parkir di slot nomor " + slotNumber);
             }
         } else {
             System.out.println(ErrorCode.LOT_NOT_INITIALIZED);

@@ -18,13 +18,14 @@ public class Parser {
         return this.mapParser.get(commandNumber);
     }
 
-    ;
-
     private void populateData() {
         mapParser = new HashMap<>();
         this.mapParser.put("1", CreateParkingLotCommand.class);
         this.mapParser.put("2", ParkCommand.class);
         this.mapParser.put("3", LeaveCommand.class);
         this.mapParser.put("4", StatusCommand.class);
+        this.mapParser.put("5", GetRegistrationNumbersFromColorCommand.class);
+        this.mapParser.put("6", GetSlotNumbersFromColorCommand.class);
+        this.mapParser.put("7", GetSlotNumberFromRegistrationNumberCommand.class);
     }
 }

@@ -20,11 +20,11 @@ public class StatusCommand extends Command {
         if (parkingLot.isLotInitialized()) {
             Map<Integer, Vehicle> map = parkingLot.status();
             if (!map.isEmpty()) {
-                System.out.println("Slot No.\tRegistration No\tColour");
+                System.out.println("No. Slot\tNomor registrasi\tWarna");
 
                 for (int slot : map.keySet()) {
                     Vehicle car = map.get(slot);
-                    System.out.println(slot + "\t" + car.getRegistrationNumber() + "\t" + car.getColor());
+                    System.out.println(slot + "\t\t\t" + car.getRegistrationNumber() + "\t\t\t" + car.getColor());
                 }
             } else
                 System.out.println(ErrorCode.NO_CAR_PARKED);
