@@ -2,7 +2,6 @@ package app;
 
 
 import constants.Leave;
-import models.Car;
 import models.Vehicle;
 
 import java.util.*;
@@ -18,14 +17,14 @@ public class ParkingLot {
     public void createParkingLot(int countLots) {
         this.NUMBER_OF_LOTS = countLots;
 
-        this.availableSlots = new ArrayList<Integer>();
+        this.availableSlots = new ArrayList<>();
         for (int i = 1; i <= this.NUMBER_OF_LOTS; i++) {
             availableSlots.add(i);
         }
 
-        this.colorRegistrationMapping = new HashMap<String, ArrayList<String>>();
-        this.slotCarMapping = new HashMap<Integer, Vehicle>();
-        this.slotRegistrationMapping = new HashMap<String, Integer>();
+        this.colorRegistrationMapping = new HashMap<>();
+        this.slotCarMapping = new HashMap<>();
+        this.slotRegistrationMapping = new HashMap<>();
     }
 
     public Leave leave(int slotNumber) {
@@ -34,12 +33,12 @@ public class ParkingLot {
             Vehicle carInfo = slotCarMapping.get(slotNumber);
 
             if (carInfo != null) {
-                slotRegistrationMapping.remove(carInfo.getRegistrationNumber());
+                slotRegistrationMapping.remove(carInfo.registrationNumber());
                 slotCarMapping.remove(slotNumber);
 
-                ArrayList<String> registrationList = colorRegistrationMapping.get(carInfo.getColor());
+                ArrayList<String> registrationList = colorRegistrationMapping.get(carInfo.color());
 
-                registrationList.remove(carInfo.getRegistrationNumber());
+                registrationList.remove(carInfo.registrationNumber());
 
                 availableSlots.add(slotNumber);
                 return Leave.LEAVE_SUCCESS;
@@ -61,7 +60,7 @@ public class ParkingLot {
 
         Collections.sort(availableSlots);
         int slot = availableSlots.get(0);
-        Vehicle newCar = new Car(registrationNumber, color);
+        Vehicle newCar = new Vehicle(registrationNumber, color);
 
         slotCarMapping.put(slot, newCar);
         slotRegistrationMapping.put(registrationNumber, slot);
@@ -71,7 +70,7 @@ public class ParkingLot {
             registrationNumbers.add(registrationNumber);
             colorRegistrationMapping.put(color, registrationNumbers);
         } else {
-            ArrayList<String> registrationNumbers = new ArrayList<String>();
+            ArrayList<String> registrationNumbers = new ArrayList<>();
             registrationNumbers.add(registrationNumber);
             colorRegistrationMapping.put(color, registrationNumbers);
         }
@@ -87,7 +86,7 @@ public class ParkingLot {
     }
 
     public List<Integer> getSlotNumbersFromColor(String color) {
-        List<Integer> slots = new ArrayList<Integer>();
+        List<Integer> slots = new ArrayList<>();
 
         if (colorRegistrationMapping == null) {
             return null;

@@ -1,14 +1,4 @@
 package models;
 
-public class Vehicle {
+public record Vehicle(String registrationNumber, String color) {}
 
-    protected String registrationNumber;
-    protected String color;
-    public String getRegistrationNumber() {
-        return this.registrationNumber;
-    }
-
-    public String getColor() {
-        return this.color;
-    }
-}
